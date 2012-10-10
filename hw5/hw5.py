@@ -41,5 +41,3 @@ def make_table():
     for i in range(len(l)):
         print "| q = %s\t| mult_A = %.4g\t| mult_B = %.4g\t| mult_AB = %.4g\t|" % (i , mult_A[i], mult_B[i],  l[i])
 
-
-
