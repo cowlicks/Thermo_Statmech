@@ -22,7 +22,7 @@ def Cv(g, n=15):
     return (1./(g*g))*((sum_a)*(sum_c) - (sum_b)**2)/(sum_c**2)
 
 # Plot this 
-def zj(g, j=100):
+def zj(g , j=200):
     sum = 0
     g = float(g)
     for i in range(j+1):
@@ -31,7 +31,8 @@ def zj(g, j=100):
 
 # Plot = numpy.arange(1., 50000., 20.)
 z = []
-t = numpy.arange(1., 50., .2)
+t = numpy.arange(10, 200., 1)
+#t = range(0, 30)
 for i in t:
     z.append(Cv(i))
 
@@ -89,10 +90,3 @@ class six:
     eps_rot = 3.902397e-23
     T_rot = 2.4599
     Srot = N*kb_j*(1 + math.log(T/T_rot))
-
-import pylab
-import numpy
-t= numpy.arange(0.1, 10.0, 0.01)
-pylab.plot(t,map(Cv, t))
-def show():
-    pylab.show()
