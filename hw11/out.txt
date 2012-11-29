@@ -1,0 +1,54 @@
+Problem 6 Schroeder 7.13
+
+I wrote the following code in python:
+
+k   = 8.617e-5          # eV/K
+B   = 1./(k*298)
+n   = [0, 1, 2, 3]
+dE_list  = [0.001, 0.01, 0.1, 1.]
+
+for dE in dE_list:
+
+    # Average occupancy.
+    avgn = (math.exp(dE*B) - 1)**-1.
+    print "Average ocuupancy at {} eV is {} particles".format(dE, avgn)
+    print " and at this e - mu:"
+
+    # Partition function.
+    Z = (1 - math.exp(-dE*B))**-1.
+    
+
+    # Probability for state to have n[j] particles.
+    for j in range(len(n)):
+        P_sum = 0
+        for k in range(j+1):
+            P_sum += math.exp(-dE*B)
+        P = (1./Z)*P_sum
+        print "\t Probability of state containing {} bosons is{}".format(j, P)
+
+#### SOLUTIONS #####
+
+Average ocuupancy at 0.001 eV is 25.1819051548 particles
+ and:
+	 Probability of state containing 0 bosons is 0.0367355116729
+	 Probability of state containing 1 bosons is 0.0734710233457
+	 Probability of state containing 2 bosons is 0.110206535019
+	 Probability of state containing 3 bosons is 0.146942046691
+Average ocuupancy at 0.01 eV is 2.10023663763 particles
+ and:
+	 Probability of state containing 0 bosons is 0.218513635004
+	 Probability of state containing 1 bosons is 0.437027270009
+	 Probability of state containing 2 bosons is 0.655540905013
+	 Probability of state containing 3 bosons is 0.874054540017
+Average ocuupancy at 0.1 eV is 0.0207809997572 particles
+ and:
+	 Probability of state containing 0 bosons is 0.0199434956049
+	 Probability of state containing 1 bosons is 0.0398869912098
+	 Probability of state containing 2 bosons is 0.0598304868148
+	 Probability of state containing 3 bosons is 0.0797739824197
+Average ocuupancy at 1.0 eV is 1.22275260131e-17 particles
+ and:
+	 Probability of state containing 0 bosons is 1.22275260131e-17
+	 Probability of state containing 1 bosons is 2.44550520263e-17
+	 Probability of state containing 2 bosons is 3.66825780394e-17
+	 Probability of state containing 3 bosons is 4.89101040526e-17
