@@ -33,9 +33,9 @@ class five:
 
 class six:
     k   = 8.617e-5          # eV/K
-    B   = 1./(k*298)
-    n   = [0, 1, 2, 3]
-    dE_list  = [0.001, 0.01, 0.1, 1.]
+    B   = 1./(k*298)        # Beta
+    n   = [0, 1, 2, 3]      # number of particles
+    dE_list  = [0.001, 0.01, 0.1, 1.]   # epsilon - mu
 
     for dE in dE_list:
 
