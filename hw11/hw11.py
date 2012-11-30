@@ -78,9 +78,21 @@ class eight:
     k   = 1.381e-23         # J/K
     G   = 6.67300e-11
     h   = 6.626e-34
+    c   = 3e8
     M   = 2e30
     R   = 0.02933*h*h/(me*(mp**(5./3.))*G*(M**(1./3.)))
     rho = M/((4./3.)*math.pi*R*R*R)
     ef  = (h*h/(8*me))*(9 * M/(8 * mp * math.pi**2 * R**3))**(2./3.) 
     Tf  = ef/k
+    Mu  = ((13.7496)*me*c*(mp**(4./3.))*R/h)**(3./4.)
 
+class nine:
+    Na  = 6.022e23
+    h   = 6.626e-34
+    u   = 1.661e-27
+    k   = 1.381e-23         # J/K
+    NV  = Na*(100)**3 /37.
+    mh3 = 3*u
+    ef  = (h*h/(8*mh3))*(3*NV/math.pi)**(2./3.)
+    Tf  = ef/k
+    Cv  = math.pi**2 * k/(2*ef)
