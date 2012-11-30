@@ -32,38 +32,55 @@ class five:
     e = Pfd(1.)
 
 class six:
-    k   = 8.617e-5          # eV/K
-    B   = 1./(k*298)        # Beta
-    n   = [0, 1, 2, 3]      # number of particles
-    dE_list  = [0.001, 0.01, 0.1, 1.]   # epsilon - mu
+    def foo():
+        k   = 8.617e-5          # eV/K
+        B   = 1./(k*298)        # Beta
+        n   = [0, 1, 2, 3]      # number of particles
+        dE_list  = [0.001, 0.01, 0.1, 1.]   # epsilon - mu
 
-    for dE in dE_list:
+        for dE in dE_list:
 
-        # Average occupancy.
-        avgn = (math.exp(dE*B) - 1)**-1.
-        print "Average ocuupancy at {} eV is {} particles".format(dE, avgn)
-        print " and:"
+            # Average occupancy.
+            avgn = (math.exp(dE*B) - 1)**-1.
+            print "Average ocuupancy at {} eV is {} particles".format(dE, avgn)
+            print " and:"
 
-        # Partition function.
-        Z = (1 - math.exp(-dE*B))**-1.
-        
+            # Partition function.
+            Z = (1 - math.exp(-dE*B))**-1.
+            
 
-        # Probability for state to have n[j] particles.
-        for j in range(len(n)):
-            P_sum = 0
-            for k in range(j+1):
-                P_sum += math.exp(-dE*B)
-            P = (1./Z)*P_sum
-            print "\t Probability of state containing {} bosons is {}".format(j, P)
+            # Probability for state to have n[j] particles.
+            for j in range(len(n)):
+                P_sum = 0
+                for k in range(j+1):
+                    P_sum += math.exp(-dE*B)
+                P = (1./Z)*P_sum
+                print "\t Probability of state containing {} bosons is {}".format(j, P)
 
+class seven:
+    h   = 6.626e-34         # J*s
+    k   = 1.381e-23         # J/K
+    Na  = 6.022e23          # Avogadro
+    u   = 1.661e-27         # kg
+    mcu = 63.346*u          # kg
+    me  = 9.109e-31         # kg
+    rho = 8.02e3            # kg/m3
+    # Fermi energy
+    ef = (h*h/(8*me))*(3*rho/(math.pi*mcu))**(2./3.)
+    # Fermi Temperature
+    Tf = ef/k
+    # The electron degeneracy pressure
+    P = (2./5.)*rho*ef/mcu
 
-
-
-
-
-
-
-
-
-
+class eight:
+    me  = 9.10938e-31
+    mp  = 1.67262e-27
+    k   = 1.381e-23         # J/K
+    G   = 6.67300e-11
+    h   = 6.626e-34
+    M   = 2e30
+    R   = 0.02933*h*h/(me*(mp**(5./3.))*G*(M**(1./3.)))
+    rho = M/((4./3.)*math.pi*R*R*R)
+    ef  = (h*h/(8*me))*(9 * M/(8 * mp * math.pi**2 * R**3))**(2./3.) 
+    Tf  = ef/k
 
